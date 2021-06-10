@@ -33,10 +33,6 @@ public:
 
 	// In general, a copy constructor and assignment operator
 	// are good things to have.
-	// For this quarter, I am not requiring these. 
-
-
-	// The destructor is, however, required. 
 	~MyRBTree()
 	{
 		Clear(Root);
@@ -55,28 +51,19 @@ public:
 
 	// find returns the value associated with the given key
 	// If !contains(k), this will throw an ElementNotFoundException
-	// There needs to be a version for const and non-const trees.
 	Value & find(const Key & k);
 	const Value & find(const Key & k) const;
 
 	// Inserts the given key-value pair into 
 	// the tree and performs the Red-Black re-balance
-	// operation, as described in lecture. 
-	// If the key already exists in the tree, 
-	// you may do as you please (no test cases in
-	// the grading script will deal with this situation)
+	// operation
 	void insert(const Key & k, const Value & v);
 
 	// returns all keys in the tree that are between k1 and k2, inclusive.
-	// You must return these *in order*.
-	// Your running time should be O(log n + s), where s is the number of elements returned.
+	// running time O(log n + s), where s is the number of elements returned.
 	std::vector<Key> reportAllInRange(const Key & k1, const Key & k2) const;
 
 
-	// in general, a "remove" function would be here.
-	// You would need it for line segment intersection,
-	// but in Spring 2021, we aren't requiring it.
-	
 	// The following three functions all return
 	// the set of keys in the tree as a standard vector.
 	// Each returns them in a different order.
@@ -98,7 +85,6 @@ public:
 };
 
 
-// Many functions below are stubbed;  you should fix them.
 template<typename Key, typename Value>
 Node<Key,Value>* MyRBTree<Key, Value>::InitNode(const Key& k, const Value& v)
 {
